@@ -1,0 +1,8 @@
+[21-May-2020 20:45:11 America/New_York] PHP Warning:  unlink(../resources/uploads/slides/1.png): No such file or directory in /home/vpppqozt/public_html/admin/slide_delete.php on line 14
+[21-May-2020 20:45:14 America/New_York] PHP Warning:  unlink(../resources/uploads/slides/2.png): No such file or directory in /home/vpppqozt/public_html/admin/slide_delete.php on line 14
+[21-May-2020 20:45:17 America/New_York] PHP Warning:  unlink(../resources/uploads/slides/4.png): No such file or directory in /home/vpppqozt/public_html/admin/slide_delete.php on line 14
+[22-May-2020 01:48:05 America/New_York] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE), expecting end of file in /home/vpppqozt/public_html/admin/includes/policy.php on line 52
+[22-May-2020 01:48:10 America/New_York] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE), expecting end of file in /home/vpppqozt/public_html/admin/includes/policy.php on line 52
+[22-May-2020 01:48:28 America/New_York] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE), expecting end of file in /home/vpppqozt/public_html/admin/includes/policy.php on line 52
+[22-May-2020 01:48:31 America/New_York] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE), expecting end of file in /home/vpppqozt/public_html/admin/includes/policy.php on line 52
+[30-Jun-2020 04:35:40 America/New_York] PHP Warning:  unlink(../resources/uploads/45.jpg): No such file or directory in /home/vpppqozt/public_html/admin/product_delete.php on line 14

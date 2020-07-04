@@ -1,4 +1,11 @@
 <?php date_default_timezone_set("Asia/Ho_Chi_Minh"); ?>
+
+<?php
+if (isset($_GET['search'])){
+    $_SESSION['search'] = escape_string($_GET['search']);
+    redirect("search.php");
+}
+?>
 <!doctype html>
 <html lang="vi">
 <head>
@@ -238,8 +245,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form><input type="search" class="top-search-input" name="s"
-                                     placeholder="What are you looking for?"/></form>
+                        <form action="" method="GET">
+                            <input type="search" class="top-search-input" name="search" placeholder="Tìm tên sản phẩm,..."/>
+                        </form>
                     </div>
                 </div>
             </div>

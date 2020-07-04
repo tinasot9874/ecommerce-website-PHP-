@@ -16,7 +16,7 @@
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- =======================DASHBOARD PAGE============================= -->
-        <?php if ($_SERVER['REQUEST_URI'] == "/admin/" || $_SERVER['REQUEST_URI'] == "/admin/index.php")
+        <?php if (basename($_SERVER['REQUEST_URI']) == "admin")
             include("includes/dashboard.php");
 
         ?>

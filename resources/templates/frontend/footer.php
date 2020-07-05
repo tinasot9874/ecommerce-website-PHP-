@@ -62,19 +62,4 @@
 <script type="text/javascript" src="js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript"
         src="js/extensions/revolution.extension.parallax.min.js"></script>
-<script>
-    // Button ScrollToTop
-    $(document).ready(function(){
-        $(window).scroll(function(){
-            if($(this).scrollTop() > 500){
-                $('#topBtn').fadeIn();
-            }else{
-                $('#topBtn').fadeOut();
-            }
-        });
-        $("#topBtn").click(function(){
-            $('html, body').animate({scrollTop : 500}, 800);
-        });
-    });
-</script>
 </body><!-- Mirrored from tk-themes.net/html-organik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 19:16:35 GMT --></html>

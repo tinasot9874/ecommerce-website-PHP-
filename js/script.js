@@ -602,6 +602,8 @@ $(document).ready(function(){
 					$("#result").html(data);
 				}
 			});
+		}else{
+			$("#result").html(" ");
 		}
 	});
 

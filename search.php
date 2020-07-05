@@ -3,8 +3,7 @@ require_once ("resources/config.php");
 $output = '';
 if (isset($_GET['search'])){
     $search = escape_string($_GET['search']);
-    $sql = "
-            SELECT * FROM products 
+    $sql = "SELECT product_id, product_title, product_category_id FROM products 
             WHERE product_title LIKE '%". $search . "%' ";
     $result = query($sql);
     if (mysqli_num_rows($result) > 0){

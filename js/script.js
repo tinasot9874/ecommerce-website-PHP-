@@ -582,3 +582,43 @@ function RevolutionInit2() {
 		}
 	});
 }
+
+/*=================================================
+ Search Ajax , Button scroll to top
+=======================================*/
+
+$(document).ready(function(){
+
+	//Search Ajax
+	$("#search").keyup(function(){
+		var txt = $(this).val();
+		if (txt != ''){
+			$.ajax({
+				url: "search.php",
+				method:"GET",
+				data:{search:txt},
+				dataType:"text",
+				success:function (data) {
+					$("#result").html(data);
+				}
+			});
+		}
+	});
+
+
+
+	//Button scroll to top
+	$(window).scroll(function(){
+		if($(this).scrollTop() > 500){
+			$('#topBtn').fadeIn();
+		}else{
+			$('#topBtn').fadeOut();
+		}
+	});
+	$("#topBtn").click(function(){
+		$('html, body').animate({scrollTop : 500}, 800);
+	});
+
+
+
+});

@@ -4,7 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <meta name="Description" content="Đồ dùng văn phòng phẩm, Giấy A4, A5, A3, các loại,... Giao hàng tận nơi, khách hàng mua nhiều sẽ được hưởng chiết khấu ">
+    <meta name="Description"
+          content="Đồ dùng văn phòng phẩm, Giấy A4, A5, A3, các loại,... Giao hàng tận nơi, khách hàng mua nhiều sẽ được hưởng chiết khấu ">
     <link rel="shortcut icon" href="images/favicon.ico"/>
     <title>Văn phòng phẩm Phạm Gia</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
@@ -48,12 +49,12 @@
 <!--    </div>-->
 <!--</div>-->
 <div id="menu-slideout" class="slideout-menu hidden-md-up">
-<!--    <div class="noo-spinner">-->
-<!--        <div class="spinner">-->
-<!--            <div class="cube1"></div>-->
-<!--            <div class="cube2"></div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div class="noo-spinner">-->
+    <!--        <div class="spinner">-->
+    <!--            <div class="cube1"></div>-->
+    <!--            <div class="cube2"></div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <div class="mobile-menu">
         <ul id="mobile-menu" class="menu">
             <li><a href="../">Trang chủ</a></li>
@@ -72,6 +73,13 @@
                         </li>
                     <?php endwhile; ?>
                 </ul>
+            </li>
+            <li>
+                <form action="search.php" method="GET"><input type="text" id="search-mobile" name="search"
+                                                              placeholder="Tìm kiếm sản phẩm..." required/>
+                    <button class="search-mobile"><i class="ion-search"></i></button>
+                </form>
+            <div class="search-panel-mobile" id="result-mobile"></div>
             </li>
             <li><a href="contact.php">Liên hệ</a></li>
         </ul>
@@ -94,8 +102,9 @@
     <header id="header" class="header header-desktop header-2">
         <div class="container">
             <div class="row">
-                <div class="col-md-3"><a href="../" id="logo"> <img style="width: 175px;" class="logo-image img-fluid" src="images/logo-bg.png"
-                                                                          alt="Phạm Gia"/> </a></div>
+                <div class="col-md-3"><a href="../" id="logo"> <img style="width: 175px;" class="logo-image img-fluid"
+                                                                    src="images/logo-bg.png"
+                                                                    alt="Phạm Gia"/> </a></div>
                 <div class="col-md-9">
                     <div class="header-right">
                         <nav class="menu">
@@ -118,18 +127,18 @@
                                         $num_of_col = 2;
                                         $num_of_rows = $total / $num_of_col;
 
-                                        for ($i = 1; $i <= $num_of_rows; $i++){
+                                        for ($i = 1; $i <= $num_of_rows; $i++) {
                                             $cell = 0;
                                             echo '<tr>';
 
-                                            for ($col = 1; $col <= $num_of_col; $col++){
+                                            for ($col = 1; $col <= $num_of_col; $col++) {
                                                 echo '<td style="padding: 0 15px;">';
-                                                if ($col == 1){
+                                                if ($col == 1) {
                                                     $cell += $i;
-                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai='.$row_arr[$cell - 1][2].'">'.$row_arr[$cell - 1][1].'</a>';
-                                                }else{
+                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai=' . $row_arr[$cell - 1][2] . '">' . $row_arr[$cell - 1][1] . '</a>';
+                                                } else {
                                                     $cell += $num_of_rows;
-                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai='.$row_arr[$cell - 1][2].'">'.$row_arr[$cell - 1][1].'</a>';
+                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai=' . $row_arr[$cell - 1][2] . '">' . $row_arr[$cell - 1][1] . '</a>';
                                                 }
                                                 echo '</td>';
                                             }
@@ -184,9 +193,9 @@
                                                 <?php
                                                 $total_price += $final_price;
                                                 $_SESSION['total_price'] = $total_price;
-                                                if ($total_price >= 500000){
+                                                if ($total_price >= 500000) {
                                                     $final_price_ship = $total_price;
-                                                }else{
+                                                } else {
                                                     $final_price_ship = $total_price + 20000;
                                                 }
                                                 $_SESSION['final_price_ship'] = $final_price_ship;
@@ -202,20 +211,20 @@
 
                                     </ul>
                                     <p class="total" style="font-family: Roboto;"><strong>Tổng giá:</strong>
-                                        <span class="amount"><?php echo product_price($total_price);?></span>
+                                        <span class="amount"><?php echo product_price($total_price); ?></span>
                                     </p>
-                                        <?php if ($total_price < 500000) {
-                                            $freeship = 500000 - $total_price;
-                                            $freeships = product_price($freeship);
-                                            echo "<span style='font-size: 15.7px; font-weight: 700; font-family: Roboto; float: left;' class='freeship'>Mua thêm <span style='color: #5fbd74;'> {$freeships} </span> để được giao hàng miễn phí!";
-                                        } else {
-                                            echo "<span style='font-size: 21px; font-weight: 700; font-family: Roboto; float: left; padding-left: 39px; ' class='text-center'>Bạn đã được giao hàng miễn phí </span>";
-                                        }
-                                        ?></span>
+                                    <?php if ($total_price < 500000) {
+                                        $freeship = 500000 - $total_price;
+                                        $freeships = product_price($freeship);
+                                        echo "<span style='font-size: 15.7px; font-weight: 700; font-family: Roboto; float: left;' class='freeship'>Mua thêm <span style='color: #5fbd74;'> {$freeships} </span> để được giao hàng miễn phí!";
+                                    } else {
+                                        echo "<span style='font-size: 21px; font-weight: 700; font-family: Roboto; float: left; padding-left: 39px; ' class='text-center'>Bạn đã được giao hàng miễn phí </span>";
+                                    }
+                                    ?></span>
                                     <p class="buttons">
                                         <a href="cart.php" class="view-cart">Giỏ hàng</a>
                                         <?php if ($count > 0)
-                                            echo   "<a href='checkout.php' class='checkout'>Thanh toán</a>";
+                                            echo "<a href='checkout.php' class='checkout'>Thanh toán</a>";
                                         ?>
                                     </p>
                                 </div>
@@ -230,7 +239,9 @@
                                     </a></div>
                             </div>
                             <div class="track-order">
-                                <a href="trackorder.php" title="Theo dỗi đơn hàng"><img style="width:25px;" src="images/order.png" alt="Tracking Order"></a>
+                                <a href="trackorder.php" title="Theo dỗi đơn hàng"><img style="width:25px;"
+                                                                                        src="images/order.png"
+                                                                                        alt="Tracking Order"></a>
                             </div>
                         </div>
                     </div>
@@ -242,13 +253,14 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <form action="search.php" method="GET">
-                            <input id="search" type="search" class="top-search-input" name="search" placeholder="Tìm tên sản phẩm,..."/>
+                            <input id="search-desktop" type="search" class="top-search-input" name="search"
+                                   placeholder="Tìm tên sản phẩm,..."/>
                         </form>
-                            <div >
-                                <ul id="result">
+                        <div class="search-panel-desktop">
+                            <ul id="result-desktop">
 
-                                </ul>
-                            </div>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
@@ -265,14 +277,15 @@
                 </div>
                 <div class="col-xs-8">
                     <div class="header-center"><a href="../" id="logo-2"> <img class="logo-image"
-                                                                                     src="images/logo-bg.png"
-                                                                                     alt="PhamGia Logo"/> </a></div>
+                                                                               src="images/logo-bg.png"
+                                                                               alt="PhamGia Logo"/> </a></div>
                 </div>
                 <div class="col-xs-2">
                     <div class="header-right">
                         <div class="mini-cart-wrap"><a href="cart.php">
                                 <div class="mini-cart">
-                                    <div class="mini-cart-icon" data-count="<?php echo $count; ?>"><i class="ion-bag"></i></div>
+                                    <div class="mini-cart-icon" data-count="<?php echo $count; ?>"><i
+                                                class="ion-bag"></i></div>
                                 </div>
                             </a></div>
                     </div>

@@ -1,9 +1,7 @@
 <?php
 require_once("resources/config.php");
 include("resources/templates/frontend/header.php");
-
 ?>
-
 <div id="main">
     <?php include("resources/templates/frontend/slider-index.php"); ?>
     <h4 class="text-center bg-warning"><?php echo display_message() ?></h4>

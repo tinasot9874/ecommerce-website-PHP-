@@ -26,41 +26,28 @@ if (isset($_POST['submit'])){
     $return2 = query($sql2);
     confirm($return2);
     session_destroy();
+}else{
+    redirect("../");
 }
-
-
 ?>
 <div id="main">
-    <div class="section section-bg-10 pt-11 pb-17">
+    <div class="section section-bg-10 pt-3 pb-17">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="page-title text-center" style="font-family: Roboto;">Cảm ơn bạn đã đặt hàng.</h2>
+                    <h3 class="page-title text-center" style="font-family: Roboto; color: #0b0b0b;">Cảm ơn bạn đã đặt hàng.</h3>
+<!--                    <h6 class="text-center pt-10" style="font-weight: normal; font-size: 2rem;">Xem đơn hàng click vào <a style="color: #3c763d" href="trackorder.php">đây</a> </h6>-->
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12" style="font-family: Roboto; text-align: center" >
-                    <a class="organik-btn" href="index.php">Quay lại trang chủ</a>
+                <div class="col-sm-12 pt-10" style="font-family: Roboto; text-align: center" >
+                    <a class="organik-btn" href="../">Quay lại trang chủ</a>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 include("resources/templates/frontend/footer.php");

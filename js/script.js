@@ -590,7 +590,7 @@ function RevolutionInit2() {
 $(document).ready(function(){
 
 	//Search Ajax
-	$("#search").keyup(function(){
+	$("#search-desktop").keyup(function(){
 		var txt = $(this).val();
 		if (txt != ''){
 			$.ajax({
@@ -599,11 +599,27 @@ $(document).ready(function(){
 				data:{search:txt},
 				dataType:"text",
 				success:function (data) {
-					$("#result").html(data);
+					$("#result-desktop").html(data);
 				}
 			});
 		}else{
-			$("#result").html(" ");
+			$("#result-desktop").html(" ");
+		}
+	});
+	$("#search-mobile").keyup(function(){
+		var txt = $(this).val();
+		if (txt != ''){
+			$.ajax({
+				url: "searchajax.php",
+				method:"GET",
+				data:{search:txt},
+				dataType:"text",
+				success:function (data) {
+					$("#result-mobile").html(data);
+				}
+			});
+		}else{
+			$("#result-mobile").html(" ");
 		}
 	});
 

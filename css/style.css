@@ -6289,7 +6289,11 @@ table.shop-cart .actions .continue-shopping:hover{
 .slick3-dots .slick-active .slick3-dot-overlay {
     border-color: #ccc;
 }
-
+.btn-track-order{
+    position: absolute;
+    right: 14px;
+    padding: 12px 17px;
+}
 .track-order{
     border-left: 1px solid #eee;
     box-sizing: border-box;

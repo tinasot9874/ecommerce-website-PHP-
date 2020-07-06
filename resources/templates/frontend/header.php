@@ -239,7 +239,7 @@
                                     </a></div>
                             </div>
                             <div class="track-order">
-                                <a href="trackorder.php" title="Theo dỗi đơn hàng"><img style="width:25px;"
+                                <a data-toggle="modal" data-target="#exampleModalCenter" title="Theo dỗi đơn hàng"><img style="width:25px;"
                                                                                         src="images/order.png"
                                                                                         alt="Tracking Order"></a>
                             </div>

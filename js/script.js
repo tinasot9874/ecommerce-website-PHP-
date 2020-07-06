@@ -594,7 +594,7 @@ $(document).ready(function(){
 		var txt = $(this).val();
 		if (txt != ''){
 			$.ajax({
-				url: "search.php",
+				url: "searchajax.php",
 				method:"GET",
 				data:{search:txt},
 				dataType:"text",

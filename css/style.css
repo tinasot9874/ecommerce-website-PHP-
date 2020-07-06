@@ -6299,3 +6299,17 @@ table.shop-cart .actions .continue-shopping:hover{
     margin: 6px 0 0 20px;
     padding: 0 0 0 20px;
 }
+.search-mobile {
+    position: absolute;
+    right: 0px;
+    background: none;
+    color: black;
+    padding: 12px 14px;
+}
+
+.search-panel-desktop ul>li>a {
+    color: white;
+}
+.search-panel-mobile li>a {
+    color: black;
+}

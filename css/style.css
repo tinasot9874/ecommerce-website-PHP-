@@ -6289,3 +6289,13 @@ table.shop-cart .actions .continue-shopping:hover{
 .slick3-dots .slick-active .slick3-dot-overlay {
     border-color: #ccc;
 }
+
+.track-order{
+    border-left: 1px solid #eee;
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin: 6px 0 0 20px;
+    padding: 0 0 0 20px;
+}

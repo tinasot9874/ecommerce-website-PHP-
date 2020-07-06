@@ -229,6 +229,9 @@
                                 <div class="top-search-btn"><a href="javascript:void(0);"> <i class="ion-search"></i>
                                     </a></div>
                             </div>
+                            <div class="track-order">
+                                <a href="trackorder.php" title="Theo dỗi đơn hàng"><img style="width:25px;" src="images/order.png" alt="Tracking Order"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +241,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="" method="GET">
+                        <form action="search.php" method="GET">
                             <input id="search" type="search" class="top-search-input" name="search" placeholder="Tìm tên sản phẩm,..."/>
                         </form>
                             <div >

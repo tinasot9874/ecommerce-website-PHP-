@@ -17,7 +17,7 @@ if (isset($_POST['submit'])){
 
     $customer               = $first_name. " " .$last_name;
 
-    $sql = "INSERT INTO orders (order_customer, order_code, order_price) VALUES ('{$customer}', '{$order_code}', '{$order_total_price}') ";
+    $sql = "INSERT INTO orders (order_customer, order_email , order_code, order_price) VALUES ('{$customer}','{$email}' , '{$order_code}', '{$order_total_price}') ";
     $return = query($sql);
     confirm($return);
 

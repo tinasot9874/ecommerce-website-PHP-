@@ -6302,6 +6302,7 @@ table.shop-cart .actions .continue-shopping:hover{
     height: 24px;
     margin: 6px 0 0 20px;
     padding: 0 0 0 20px;
+    cursor: pointer;
 }
 .search-mobile {
     position: absolute;

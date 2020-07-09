@@ -81,6 +81,9 @@
                 </form>
             <div class="search-panel-mobile" id="result-mobile"></div>
             </li>
+            <li class="track-order-mobile">
+                <a data-toggle="modal" data-target="#exampleModalCenter" title="Theo dỗi đơn hàng">Kiểm tra đơn hàng<img src="images/order.png" alt="Tracking Order"></a>
+            </li>
             <li><a href="contact.php">Liên hệ</a></li>
         </ul>
     </div>

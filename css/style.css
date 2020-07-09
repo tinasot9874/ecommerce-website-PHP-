@@ -6304,6 +6304,11 @@ table.shop-cart .actions .continue-shopping:hover{
     padding: 0 0 0 20px;
     cursor: pointer;
 }
+.track-order-mobile img{
+    width: 26px;
+    position: absolute;
+    right: 8px;
+}
 .search-mobile {
     position: absolute;
     right: 0px;

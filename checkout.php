@@ -7,7 +7,7 @@ if ($_SESSION['count'] == 0 )
 }
 ?>
 <div id="main">
-    <div class="section section-bg-10 pt-11 pb-17">
+    <div class="section section-bg-10 pt-2 pb-2">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -219,9 +219,15 @@ if ($_SESSION['count'] == 0 )
                         </table>
                     </div>
                     <p>Hãy kiểm tra đơn hàng chính xác</p>
-                    <div class="text-right">
-                        <a style="padding: 8px;" class="organik-btn mt-1" href="cart.php"> Quay lại giỏ hàng </a>
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <a  class="organik-btn arrow " href="cart.php"> Quay lại giỏ hàng </a>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button type="submit" name="submit" class="organik-btn" href="thankyou.php"> Đặt hàng </button>
+                        </div>
                     </div>
+
 
                 </div>
             </div> 
@@ -238,9 +244,6 @@ if ($_SESSION['count'] == 0 )
                                 </div>
                             </li>
                         </ul>
-                        <div class="text-right text-center-sm">
-                            <button type="submit" name="submit" class="organik-btn mt-6" href="thankyou.php"> Đặt hàng </button>
-                        </div>
                     </div>
                 </div>
             </div>

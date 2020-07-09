@@ -611,7 +611,7 @@ select {
     font-size: 56px;
     line-height: 1.5;
     letter-spacing: 0;
-    color: #fff;
+    color: #4cae4c;
 }
 .breadcrumbs {
     padding: 0;
@@ -6317,4 +6317,40 @@ table.shop-cart .actions .continue-shopping:hover{
 }
 .search-panel-mobile li>a {
     color: black;
+}
+/*================ SPINNER CSS ====================*/
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.label-1{
+    background-color: #fec107;
+}
+.label-2{
+    background-color: #03a9f3;
+}
+.label-3{
+    background-color: #00c292;
+}
+.label-4{
+    background-color: #e46a76;
 }

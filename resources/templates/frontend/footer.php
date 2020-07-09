@@ -40,7 +40,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
-    <div class="modal-dialog " role="document" style="width: fit-content;">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Theo dỗi đơn hàng</h5>
@@ -53,18 +53,19 @@
                     <div class="form-group">
                         <label for="email-tracking" class="col-form-label">Nhập email đặt hàng của bạn:</label>
                         <input id="track-order-email" type="text" name="email" placeholder="Email của bạn" required/>
-                        <button id="track-order-submit" type="submit" class="btn-track-order"><i class="ion-search"></i></button>
+                        <button id="track-order-submit" type="submit" class="btn-track-order"><i class="ion-search"></i>
+                        </button>
                     </div>
                     <div class="form-group">
                         <p style="color: red;" id="msg-trackorder"></p>
                     </div>
+                    <div class="text-center" id="spinner"></div>
                 </div>
 
-                    <div id="track-order-result" class="form-group">
+                <div id="track-order-result" class="form-group">
 
 
-
-                    </div>
+                </div>
             </div>
         </div>
     </div>

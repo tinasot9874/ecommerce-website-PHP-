@@ -19,17 +19,21 @@ include("resources/templates/frontend/header.php");
             </div>
             <div class="row">
                 <div class="col-sm-12 p-0">
-                    <div class="text-center">
-                        <ul class="masonry-filter">
-                            <li><a style='font-weight: 600; cursor: pointer;' data-filter="" class="active">Tất cả</a></li>
+                    <div class="text-center masonry-filter">
+                        <div class="row" style="text-transform: uppercase;">
+                            <span><a style='font-weight: 600; cursor: pointer;' data-filter="" class="active">Tất cả</a></span>
+                        </div>
+                        <ul class="">
+
                             <?php
-                            $sql = "SELECT * FROM categories";
+                            $sql = "SELECT * FROM categories ORDER BY cate_id ASC";
                             $result = query($sql);
 
                             while ($row = fetch_array($result)) {
-                                echo "<li><a style='font-weight: 600; cursor: pointer;' data-filter='.{$row['slug']}'>{$row['cate_title']}</a></li>";
+                                echo "<li class='col-2'><a style='font-weight: 600; cursor: pointer;' data-filter='.{$row['slug']}'>{$row['cate_title']}</a></li>";
                             }
                             ?>
+
                         </ul>
                     </div>
                 </div>

@@ -1170,7 +1170,7 @@ header.header-2 nav.menu .main-menu > li > a,
 header.header-3 nav.menu .main-menu > li > a,
 header.header-4 nav.menu .main-menu > li > a {
     text-transform: uppercase;
-	padding: 60px 20px;
+	padding: 40px 20px;
 }
 header.header-1.scrolling-menu nav.menu .main-menu > li > a, 
 header.header-2.scrolling-menu nav.menu .main-menu > li > a, 
@@ -1205,12 +1205,11 @@ header.header-4 nav.menu .main-menu > li.active > a {
     left: 0;
     visibility: hidden;
     margin: 0;
-    min-width: 270px;
+    min-width: 500px;
     width: 100%;
     background-color: #fff;
     opacity: 0;
     transition: all .3s ease;
-    padding: 20px 0;
     list-style: none;
     text-align: left;
     text-transform: none;
@@ -1926,7 +1925,7 @@ header.header-4.scrolling-menu #logo {
 
 /* === 2.6. MASONRY === */
 .masonry-filter {
-	margin-top: 32px;
+	margin-top: 20px;
     margin-bottom: 57px;
 }
 .masonry-filter {

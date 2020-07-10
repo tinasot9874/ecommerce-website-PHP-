@@ -115,40 +115,15 @@
                                 <li><a href="../">Trang chủ</a></li>
                                 <li class="dropdown">
                                     <a href="#">Loại sản phẩm</a>
-                                    <?php
-                                    $sql = "SELECT cate_id, cate_title FROM categories ORDER BY cate_id ASC ";
-                                    $result = query($sql);
-                                    confirm($result);
-                                    while ($row = fetch_array($result)) {
-                                        $row_arr[] = array(1 => $row['cate_title'], 2 => $row['cate_id']);
-                                    }
-                                    ?>
-                                    <table style="width: 600px;" class="sub-menu">
-                                        <?php
-                                        $total = count($row_arr);
+                                    <ul class="sub-menu">
+                                        <?php $sql = "SELECT cate_id, cate_title FROM categories ORDER BY cate_id ASC";
+                                              $result = query($sql);
+                                              confirm($result);
+                                              while ($row = fetch_array($result)):?>
+                                        <li class="col-xs-4"><a href="shop-list.php?loai=<?php echo $row['cate_id']; ?>"><?php echo $row['cate_title']; ?></a></li>
 
-                                        $num_of_col = 2;
-                                        $num_of_rows = $total / $num_of_col;
-
-                                        for ($i = 1; $i <= $num_of_rows; $i++) {
-                                            $cell = 0;
-                                            echo '<tr>';
-
-                                            for ($col = 1; $col <= $num_of_col; $col++) {
-                                                echo '<td style="padding: 0 15px;">';
-                                                if ($col == 1) {
-                                                    $cell += $i;
-                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai=' . $row_arr[$cell - 1][2] . '">' . $row_arr[$cell - 1][1] . '</a>';
-                                                } else {
-                                                    $cell += $num_of_rows;
-                                                    echo '<a style ="letter-spacing: 0.05em;width: 100%;border-bottom: 1px solid #f1eeea;padding: 15px 0;" href="shop-list.php?loai=' . $row_arr[$cell - 1][2] . '">' . $row_arr[$cell - 1][1] . '</a>';
-                                                }
-                                                echo '</td>';
-                                            }
-                                        }
-
-                                        ?>
-                                    </table>
+                                        <?php endwhile; ?>
+                                    </ul>
                                 </li>
                                 <li><a href="policy.php">Chính sách</a></li>
                                 <li><a href="contact.php">Liên hệ</a></li>

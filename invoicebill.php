@@ -21,8 +21,9 @@ if (mysqli_num_rows($result) > 0) {
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <h4 class="control-label">Mã hoá
-                                                    đơn: <?php echo $row['order_detail_code']; ?></h4>
+                                                <h5 class="control-label pb-2">Mã hoá
+                                                    đơn: <?php echo $row['order_detail_code']; ?></h5>
+                                                <h5 class="control-label pb-2">Trạng thái đơn hàng: <span class="label label-<?php echo $row['order_status']; ?>"><?php echo $row['order_status_title']; ?></span> </h5>
                                                 <input type="hidden" name="order_code"
                                                        value="<?php echo $row['order_detail_code']; ?>">
                                                 <input type="hidden" name="order_status"
@@ -48,13 +49,7 @@ if (mysqli_num_rows($result) > 0) {
                                                 ';
                                                 echo $output;
                                             }else{
-                                                $output = '
-                                                <div class="col-md-4 ">
-                                                    <div class="form-group">
-                                                        <span class="btn btn-danger">Đơn hàng đã huỷ</span>
-                                                    </div>
-                                                </div>
-                                                ';
+                                                $output = ' ';
                                                 echo $output;
                                             }
                                             ?>
@@ -161,7 +156,7 @@ if (mysqli_num_rows($result) > 0) {
                                                             <td><?php if ($row['order_detail_total_price'] >= 500000) {
                                                                     echo "Miễn phí";
                                                                 } else {
-                                                                    echo "Đã tính vào tổng giá";
+                                                                    echo "20,000 VND";
                                                                 } ?></td>
                                                         </tr>
                                                         <tr class="order-total" style="border-bottom: none;">

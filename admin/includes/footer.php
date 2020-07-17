@@ -241,7 +241,8 @@
         slug = '@' + slug + '@';
         slug = slug.replace(/\@\-|\-\@|\@/gi, '');
         //In slug ra textbox có id “slug”
-        document.getElementById('slug').value = slug;
+        document.getElementById('product-slug').value = slug;
+        document.getElementById('image-slug').value = slug;
     }
     ChangeToSlug();
 

@@ -52,8 +52,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Tên hình ảnh slug</label>
-                                            <input type="text" id="slug" name="image-slug" class="form-control" placeholder="" readonly required> </div>
+                                            <label class="control-label">Tên sản phẩm slug</label>
+                                            <input type="text" id="product-slug" name="product_slug" class="form-control" placeholder="" readonly>
+                                            <input type="text" id="image-slug" name="image-slug" class="form-control" placeholder="" hidden > 
+                                        </div>
+
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">

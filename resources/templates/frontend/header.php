@@ -69,7 +69,7 @@
                     while ($row = fetch_array($result)):
                         ?>
                         <li>
-                            <a href="shop-list.php?loai=<?php echo $row['cate_id']; ?>"><?php echo $row['cate_title']; ?></a>
+                            <a href="shop-list.php?loai=<?php echo $row['slug']; ?>"><?php echo $row['cate_title']; ?></a>
                         </li>
                     <?php endwhile; ?>
                 </ul>
@@ -116,11 +116,13 @@
                                 <li class="dropdown">
                                     <a href="#">Loại sản phẩm</a>
                                     <ul class="sub-menu">
-                                        <?php $sql = "SELECT cate_id, cate_title FROM categories ORDER BY cate_id ASC";
+                                        <?php $sql = "SELECT * FROM categories ORDER BY cate_id ASC";
                                               $result = query($sql);
                                               confirm($result);
                                               while ($row = fetch_array($result)):?>
-                                        <li class="col-xs-4"><a href="shop-list.php?loai=<?php echo $row['cate_id']; ?>"><?php echo $row['cate_title']; ?></a></li>
+                                        <li class="col-xs-4">
+                                            <a href="shop-list.php?loai=<?php echo $row['slug']; ?>"><?php echo $row['cate_title']; ?></a>
+                                        </li>
 
                                         <?php endwhile; ?>
                                     </ul>
@@ -141,7 +143,7 @@
                                             if (substr($name, 0, 8) == "product_" && $value > 0) {
                                                 $count++;
                                                 $id = substr($name, 8);
-                                                $sql = "SELECT * FROM products WHERE product_id = " . escape_string($id) . " ";
+                                                $sql = "SELECT * FROM products, categories WHERE product_category_id = cate_id AND product_id = " . escape_string($id) . " ";
                                                 $result = query($sql);
 
                                                 while ($row = fetch_array($result)):
@@ -149,8 +151,8 @@
                                                     ?>
                                                     <li>
                                                         <a href="cart-functions.php?delete=<?php echo $row['product_id'] ?>"
-                                                           class="remove">×</a> <a
-                                                                href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id']; ?>">
+                                                           class="remove">×</a> 
+                                                           <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                                             <img class="img-responsive"
                                                                  src="resources/uploads/<?php echo $row['product_image']; ?>"
                                                                  alt="<?php echo $row['product_title']; ?>"/> <?php echo $row['product_title']; ?>

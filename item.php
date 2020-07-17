@@ -23,7 +23,9 @@ include("resources/templates/frontend/header.php");
                         <div class="single-product">
                             <!--BEGIN Chi tiết sản phẩm -->
                             <?php
-                            $result = query("SELECT * FROM products, categories WHERE product_category_id = cate_id AND product_id =" . escape_string($_GET['id']) . " ");
+                            if (isset($_GET['ten'])){
+                            $name = escape_string($_GET['ten']);
+                            $result = query("SELECT * FROM products, categories WHERE product_category_id = cate_id AND product_slug = '{$name}' ");
                             confirm($result);
 
                             while ($row = fetch_array($result)):
@@ -97,7 +99,11 @@ include("resources/templates/frontend/header.php");
                                         </div>
                                     </div>
                                 </div>
-                            <?php endwhile; ?>
+                            <?php endwhile;}else{
+                                redirect("../");
+                            }
+                            
+                            ?>
                             <!--END Chi tiết sản phẩm -->
 
                             <div class="col-md-12">
@@ -106,7 +112,10 @@ include("resources/templates/frontend/header.php");
                                         <div class="text-center mb-1 section-pretitle fz-34" style="font-family: Roboto">Các sản phẩm cùng loại</div>
                                     </div>
                                     <div class="product-carousel p-0" data-auto-play="true" data-desktop="3" data-laptop="2" data-tablet="2" data-mobile="1">
-                                        <?php $sql = "SELECT * FROM products JOIN categories ON product_category_id = cate_id WHERE cate_id =".escape_string($_GET['loai'])." AND product_id NOT IN ( ".escape_string($_GET['id'])." ) ";
+                                        <?php 
+                                        $name = escape_string($_GET['ten']);
+                                        $cate = escape_string($_GET['loai']);
+                                        $sql = "SELECT * FROM products JOIN categories ON product_category_id = cate_id WHERE slug = '{$cate}' AND product_slug NOT IN ( '{$name}' ) ";
 
                                         $result = query($sql);
 
@@ -115,7 +124,7 @@ include("resources/templates/frontend/header.php");
                                             ?>
                                             <div class="product-item text-center">
                                                 <div class="product-thumb">
-                                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                                         <?php if ( $row['product_stock'] == 0 )
 
                                                             echo "<span class='outofstock'><span>Out</span>of stock</span>";
@@ -135,7 +144,7 @@ include("resources/templates/frontend/header.php");
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                                         <h2 class="title"><?php echo $row['product_title']; ?></h2>
                                                         <p class="">MSP: <?php echo $row['product_code']; ?></p>
                                                         <span class="price">
@@ -167,7 +176,9 @@ include("resources/templates/frontend/header.php");
                             <div class="widget widget-products">
                                 <h3 class="widget-title">Các sản phẩm khác</h3>
                                 <ul class="product-list-widget">
-                                    <?php $sql = "SELECT * FROM products WHERE product_id NOT IN (" . $_GET['id'] . ")  LIMIT 5 ";
+                                    <?php 
+                                    $name = escape_string($_GET['ten']);
+                                    $sql = "SELECT * FROM products JOIN categories ON product_category_id = cate_id WHERE  product_slug NOT IN ('$name')  LIMIT 5 ";
                                     $result = query($sql);
                                     confirm($result);
 
@@ -175,7 +186,7 @@ include("resources/templates/frontend/header.php");
 
                                         ?>
                                         <li>
-                                            <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                        <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                                 <img src="resources/uploads/<?php echo $row['product_image']; ?>"
                                                      alt=""/>
                                                 <span class="product-title"><?php echo $row['product_title'] ?></span>

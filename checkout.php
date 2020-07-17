@@ -134,8 +134,7 @@ if ($_SESSION['count'] == 0 )
                                         ?>
                                         <tr>
                                             <td class="product-name">
-                                                <a name="product_name" style="color: #4cae4c;"
-                                                   href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>"><?php echo $row['product_title']; ?></a>&nbsp;
+                                                <a name="product_name" style="color: #4cae4c;" href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug']; ?>"><?php echo $row['product_title']; ?></a>&nbsp;
 
                                             </td>
                                             <td>

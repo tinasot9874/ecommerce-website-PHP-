@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $product_price = escape_string($_POST['product_price']);
     $product_stock = escape_string($_POST['product_stock']);
     $product_code  = escape_string($_POST['product_code']);
+    $product_slug  = escape_string($_POST['product_slug']);
     if (isset($_POST['product_status'])) {
         $product_status = escape_string($_POST['product_status']);
     } else {
@@ -61,7 +62,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    $sql = "INSERT INTO products(product_title,product_code,product_category_id,product_price,product_stock ,product_status,product_sale,product_description, product_image) VALUES('{$product_title}','{$product_code}','{$product_category_id}','{$product_price}','{$product_stock }','{$product_status}','{$product_sale}','{$product_description}','{$product_image}') ";
+    $sql = "INSERT INTO products(product_title, product_slug,product_code,product_category_id,product_price,product_stock ,product_status,product_sale,product_description, product_image) VALUES('{$product_title}','{$product_slug}','{$product_code}','{$product_category_id}','{$product_price}','{$product_stock }','{$product_status}','{$product_sale}','{$product_description}','{$product_image}') ";
     $result = query($sql);
     confirm($result);
     set_message("<button type='button' class='m-b-15 btn btn-lg btn-success text-center  btn-block' disabled> Đã thêm sản phẩm mới </button>");
@@ -78,6 +79,7 @@ if (isset($_POST['update'])) {
     $product_price = escape_string($_POST['product_price']);
     $product_stock = escape_string($_POST['product_stock']);
     $product_code = escape_string($_POST['product_code']);
+    $product_slug  = escape_string($_POST['product_slug']);
     if (isset($_POST['product_status'])) {
         $product_status = escape_string($_POST['product_status']);
     } else {
@@ -108,7 +110,13 @@ if (isset($_POST['update'])) {
     $target_thumbs_path = $uploads_dir.DS."thumbs".DS.$name;
     $target_thumbs_path_string = strval($target_thumbs_path);
 
-    if (move_uploaded_file($tmp_name, $target_path)){
+    if (!empty($product_image)){
+        $get_pic = query("SELECT product_image FROM products WHERE product_id = '{$product_id}' ");
+        confirm($get_pic);
+        while ($pic = fetch_array($get_pic)){
+            $product_image = $pic['product_image'];
+        }
+    }else if (move_uploaded_file($tmp_name, $target_path)){
 
         //  resize image
         $resize = new ResizeImage($target_path_string);
@@ -123,16 +131,10 @@ if (isset($_POST['update'])) {
     }else{
         die("Không thể upload hình ảnh sản phẩm, liên hệ admin");
     }
-    if (empty($product_image)){
-        $get_pic = query("SELECT product_image FROM products WHERE product_id = '{$product_id}' ");
-        confirm($get_pic);
-        while ($pic = fetch_array($get_pic)){
-            $product_image = $pic['product_image'];
-        }
-    }
+    
 
 
-    $sql = "UPDATE products SET product_title = '{$product_title}', product_category_id = '{$product_category_id}', product_code = '{$product_code}', product_price = '{$product_price}', product_stock = '{$product_stock}', product_status = '{$product_status}', product_sale = '{$product_sale}', product_description = '{$product_description}', product_image = '{$product_image}' WHERE product_id = '{$product_id}' ";
+    $sql = "UPDATE products SET product_title = '{$product_title}', product_slug = '{$product_slug}', product_category_id = '{$product_category_id}', product_code = '{$product_code}', product_price = '{$product_price}', product_stock = '{$product_stock}', product_status = '{$product_status}', product_sale = '{$product_sale}', product_description = '{$product_description}', product_image = '{$product_image}' WHERE product_id = '{$product_id}' ";
     $result = query($sql);
     confirm($result);
     set_message("<button type='button' class='m-b-15 btn btn-lg btn-success text-center  btn-block' disabled> Đã sửa sản phẩm thành công </button>");

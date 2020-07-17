@@ -11,7 +11,8 @@ include("resources/templates/frontend/header.php");
                     <ul class="breadcrumbs">
                         <li><a href="../">Trang chủ</a></li>
                         <li><?php
-                            $sql = "SELECT * FROM categories WHERE cate_id=" . escape_string($_GET['loai']) . " ";
+                            $cate = escape_string($_GET['loai']);
+                            $sql = "SELECT * FROM categories WHERE slug = '{$cate}' ";
                             $result = query($sql);
                             confirm($result);
                             while ($row = fetch_array($result)) {
@@ -36,15 +37,15 @@ include("resources/templates/frontend/header.php");
                     </div>
                     <div class="product-grid">
                         <?php
-                            $sql = "SELECT * FROM products WHERE product_category_id = " . escape_string($_GET['loai']) . " ";
+                            $cate = escape_string($_GET['loai']);
+                            $sql = "SELECT * FROM products, categories WHERE product_category_id = cate_id AND slug = '{$cate}' ";
                             $result = query($sql);
                             confirm($result);
                             while ($row = fetch_array($result)):
                         ?>
                             <div class="col-md-4 col-sm-6 product-item text-center mb-3">
                                 <div class="product-thumb">
-                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
-
+                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                         <div class="badges">
                                             <span class="hot">Hot</span>
                                             <?php
@@ -67,7 +68,7 @@ include("resources/templates/frontend/header.php");
                                     </a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                         <h2 class="title"><?php echo $row['product_title']; ?></h2>
                                         <span class="price">
 													<?php
@@ -107,14 +108,15 @@ include("resources/templates/frontend/header.php");
                             <h3 class="widget-title">Các sản phẩm khác</h3>
                             <ul class="product-list-widget">
                                 <?php
-                                $sql = "SELECT * FROM products WHERE product_category_id NOT IN (" . escape_string($_GET['loai']) . ") ORDER BY RAND() LIMIT 5 ";
+                                $cate = escape_string($_GET['loai']);
+                                $sql = "SELECT * FROM products, categories WHERE product_category_id = cate_id AND slug NOT IN ('{$cate}') ORDER BY RAND() LIMIT 5 ";
                                 $result = query($sql);
                                 confirm($result);
                                 while ($row = fetch_array($result)):
                                     ?>
 
                                     <li>
-                                        <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                    <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                             <?php if ($row['product_stock'] == 0)
 
                                                 echo "<span class='outofstock'><span>Out</span>of stock</span>";

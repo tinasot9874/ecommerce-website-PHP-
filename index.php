@@ -68,7 +68,7 @@ include("resources/templates/frontend/header.php");
                             <form id="form_id" method="post"
                                   action="index.php?action=add$id=<?php echo $row['product_id']; ?>">
                                 <div class="product-thumb">
-                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                    <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                         <?php if ($row['product_stock'] == 0)
 
                                             echo "<span class='outofstock'><span>Out</span>of stock</span>";
@@ -107,7 +107,7 @@ include("resources/templates/frontend/header.php");
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>">
+                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug'] ?>">
                                         <div style="width: 100%; height: 50px; ">
                                             <p class="title" style="margin: 20px 0 0 0!important;"><?php echo $row['product_title']; ?></p>
 

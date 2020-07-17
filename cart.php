@@ -51,7 +51,7 @@ include("cart-functions.php");
                                                 </a>
                                             </td>
                                             <td class="product-info">
-                                                <a href="item.php?id=<?php echo $row['product_id']; ?>&loai=<?php echo $row['product_category_id'] ?>"><?php echo $row['product_title']; ?></a>
+                                                <a href="item.php?ten=<?php echo $row['product_slug']; ?>&loai=<?php echo $row['slug']; ?>"><?php echo $row['product_title']; ?></a>
                                                 <span class="amount"><?php
                                                     if ($row['product_sale'] < $row['product_price'] && $row['product_sale'] > 0) {
                                                         echo "<del style='color: black'>" . product_price($row['product_price']) . " </del> <br>";
